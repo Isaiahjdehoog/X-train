@@ -1,0 +1,49 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+firebase-debug.log*
+firebase-debug.*.log*
+
+# Firebase cache
+.firebase/
+
+# Build output
+dist/
+
+# Dependency directories
+node_modules/
+
+# Vite
+.vite/
+
+# Optional npm cache
+.npm
+.eslintcache
+
+# dotenv
+.env
+.env.local
+.env.*.local
+
+# Personal training data - keep private
+my-program.json
+mikayla-program.json
+users.json
+
+# Firebase service account keys - keep private
+serviceAccountKey.json
+*serviceAccountKey*.json
+migration/serviceAccountKey*.json
+
+# Exported user/data files - keep private
+users-export.json
+migration/firestore-export.json
+
+# Claude settings
+.claude/
+
+# OS
+.DS_Store

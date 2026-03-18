@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "big-axiom-490504-d0"
+  },
+  "targets": {
+    "big-axiom-490504-d0": {
+      "hosting": {
+        "x-train": [
+          "x-train"
+        ]
+      }
+    }
+  }
+}
