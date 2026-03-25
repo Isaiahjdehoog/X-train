@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useAppData, getTodayStr } from '../../context/AppDataContext';
 import { useUI } from '../../context/UIContext';
-import { useLongPress } from '../../hooks/useLongPress';
 import WeightRow from './WeightRow';
 
 export default function ExerciseCard({ ex, exIdx, dayIdx, day: p, dragHandlers }) {
@@ -93,14 +92,6 @@ export default function ExerciseCard({ ex, exIdx, dayIdx, day: p, dragHandlers }
     removeExerciseImage(ex.id);
   };
 
-  const longPress = useLongPress(() => {
-    setCopiedExercise({
-      name: ex.name, sets: ex.sets, numSets: ex.numSets, note: ex.note,
-      exerciseNotes: getExerciseNote(ex.id),
-      image: getExerciseImage(ex.id),
-    });
-  });
-
   const cardStyle = isChecked
     ? { background: `${p.color}30`, borderColor: `${p.accent}40` }
     : {};
@@ -112,7 +103,6 @@ export default function ExerciseCard({ ex, exIdx, dayIdx, day: p, dragHandlers }
       onDragOver={dragHandlers.onCardDragOver}
       onDrop={dragHandlers.onCardDrop}
       onDragLeave={dragHandlers.onCardDragLeave}
-      {...longPress}
     >
       <div className="ex-row">
         <div
@@ -120,6 +110,7 @@ export default function ExerciseCard({ ex, exIdx, dayIdx, day: p, dragHandlers }
           draggable
           onDragStart={dragHandlers.onDragStart}
           onDragEnd={dragHandlers.onDragEnd}
+          onPointerDown={e => e.stopPropagation()}
         >
           <div className="drag-line" />
           <div className="drag-line" />

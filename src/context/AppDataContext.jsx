@@ -248,10 +248,7 @@ export function AppDataProvider({ children }) {
       localStorage.setItem(KEYS.HEADER_INFO, JSON.stringify(info));
       _setHeaderInfo(info);
     }
-    if (data.activeDay !== undefined) {
-      localStorage.setItem(KEYS.ACTIVE_DAY, data.activeDay.toString());
-      _setActiveDay(data.activeDay);
-    }
+    // activeDay is computed fresh on load via smart day logic — never overwrite from cloud
     // Dark mode is device-local preference — never overwrite from cloud
   }, []);
 
